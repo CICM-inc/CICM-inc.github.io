@@ -25,11 +25,11 @@ jobs:
             - uses: actions/checkout@v7
               with:
                 repository: ${{ vars.SRC_GITHUB_REPO }}
-                token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+                ssh-key: ${{ secrets.SRC_REPO_DEPLOY_KEY }}
                 lfs: true
             - uses: pnpm/action-setup@v6
               with:
-                version: 10
+                version: 12
                 run_install: true
             - id: detect-package-manager
               run: |
